@@ -12,16 +12,6 @@ D = 1.000
 D_MINUS = 0.667
 F = 0.000
 
-# Fall 2012 Grades
-FALL_12 = [[A_MINUS, 4],   # East Asian Studies
-            [A, 1],        # Overview I
-            [B_MINUS, 4],  # Discrete Structures
-            [B, 4],        # Fundies I
-            [B, 1],        # Fundies I Lab
-            [A_MINUS, 4]]  # College Writing
-                           # ______________________
-                           # Fall 2012 GPA: 3.278
-
 # Make a formatted grade list that will work with the below functions
 def make_grade_list():
     result = []
