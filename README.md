@@ -12,13 +12,13 @@ Each class is stored in an array and these array of classes are all stored in on
 
 ```python
 # Fall 2012 Grades
-FALL_12 = [[A_MINUS, 4],   # East Asian Studies
-            [A, 1],        # Overview I
+FALL_12 = [[A_MINUS, 4],   # Theory of Everything 101
+            [A, 1],        # Overview IV
             [B_MINUS, 4],  # Discrete Structures
-            [B, 4],        # Fundies I
-            [B, 1],        # Fundies I Lab
-            [A_MINUS, 4]]  # College Writing
+            [B, 4],        # Quantum Physics
+            [B, 1],        # Quantum Physics Lab
+            [A_MINUS, 4]]  # 31st Century Economics
                            # ______________________
-                           # Fall 2012 GPA: 3.278
+                           # Fall 2012 GPA: 4.000
 ```
 
