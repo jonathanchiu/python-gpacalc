@@ -19,6 +19,6 @@ FALL_12 = [[A_MINUS, 4],   # Theory of Everything 101
             [B, 1],        # Quantum Physics Lab
             [A_MINUS, 4]]  # 31st Century Economics
                            # ______________________
-                           # Fall 2012 GPA: 4.000
+                           # Fall 2012 GPA: 3.278
 ```
 
