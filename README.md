@@ -7,9 +7,10 @@ How to use
 Define an array of Course objects. A Course object represents a course taken in some arbitrary semester and can be initialized like so, where the first argument is the letter grade received (mapping of letter to number equivalent can be found in the code), the second argument is the number of credits for that course, and the third argument is the name of the course (which is an optional parameter):
 
 ```python
-x = Course('A', 4, "Potato Theory")
-y = Course('B', 4, "History of Swag")
-z = Course('A-', 4, "Particle Physics")
+x = Course('A', 4, "Potato Theory"),
+y = Course('B', 4, "History of Swag"),
+z = Course('A-', 4, "Particle Physics"),
+h = Course('A-', 4, "History of Chinese Culture")
 fall2014 = [x,y,z]
 ```
 
