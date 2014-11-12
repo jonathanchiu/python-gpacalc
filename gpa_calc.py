@@ -1,72 +1,59 @@
-# Constants
-A = 4.000
-A_MINUS = 3.667
-B_PLUS = 3.333
-B = 3.000
-B_MINUS = 2.667
-C_PLUS = 2.333
-C = 2.000
-C_MINUS = 1.667
-D_PLUS = 1.333
-D = 1.000
-D_MINUS = 0.667
-F = 0.000
+class Course:
+  """Contains information regarding a course
 
-# Make a formatted grade list that will work with the below functions
-def make_grade_list():
-    result = []
-    numberOfCourses = int(raw_input("How many courses did you take?: "))
-    for i in range(0, numberOfCourses):
-        grade = raw_input("Grade for course?: ")
-        credit = raw_input("Number of credits for course?: ")
-        if grade == 'A':
-            combo = [A, credit]
-        elif grade == 'A-':
-            combo = [A_MINUS, credit]
-        elif grade == 'B+':
-            combo = [B_PLUS, credit]
-        elif grade == 'B':
-            combo = [B, credit]
-        elif grade == 'B-':
-            combo = [B_MINUS, credit]
-        elif grade == 'C+':
-            combo = [C_PLUS, credit]
-        elif grade == 'C':
-            combo = [C, credit]
-        elif grade == 'C-':
-            combo = [C_MINUS, credit]
-        elif grade == 'D+':
-            combo = [D_PLUS, credit]
-        elif grade == 'D':
-            combo = [D, credit]
-        elif grade == 'D-':
-            combo = [D_MINUS, credit]
-        else:
-            combo = [F, credit]
-        result.append(combo)
-    return result
+  Parameters:
 
+  grade   -- String representing letter grade received
+  credits -- Integer representing number of credits course has
+  name    -- String representing the name of the course (optional)
+  """
+  def __init__(self, grade, credits, name = "N/A"):
+    self.grade   = letter_to_num[grade]
+    self.letter  = grade
+    self.credits = credits
+    self.name    = name
 
-# Calculate the quality points of each
-# course and make a list out of them
-def qpt_calc(l):
-    initialResult = []
-    for i in l:
-        # Make a list of list
-        initialResult.append([i[0] * i[1]])
-    # Flatten the list
-    finalResult = [i for subl in initialResult for i in subl]
-    return finalResult
+  def __str__(self):
+    """Return a string representing this course
 
-# Calculate the total credit hours for your schedule
-def total_credit_hours(l):
-    result = 0
-    for i in l:
-        result += i[1]
-    return result
+    self -- A Course object
+    """
+    return (self.letter + "," + str(self.credits) + "," + self.name)
 
-# Calculate final GPA
-def gpa_calc(l):
-    sumQPT = sum(qpt_calc(l))
-    totalHours = total_credit_hours(l)
-    return sumQPT / totalHours
+letter_to_num = {
+  'A' : 4.000,
+  'A-': 3.667,
+  'B+': 3.333,
+  'B' : 3.000,
+  'B-': 2.667,
+  'C+': 2.333,
+  'C' : 2.000,
+  'C-': 1.667,
+  'D+': 1.333,
+  'D' : 1.000,
+  'D-': 0.667,
+  'F' : 0.000
+}
+
+fall2014 = [
+  Course('A', 4, "Potato Theory"),
+  Course('B', 4, "History of Swag"),
+  Course('A-', 4, "Particle Physics"),
+  Course('A-', 4, "History of Chinese Culture")
+]
+
+def gpa(semester):
+  """Given a list of Course objects, calculate the gpa for that semester
+
+  semester -- A list of Course objects representing courses taken in a semester
+  """
+  total_qpt = 0
+  total_credits = 0
+
+  for course in semester:
+    qpt           = course.grade * course.credits
+    total_qpt     += qpt
+    total_credits += course.credits
+
+  gpa = total_qpt / total_credits
+  return gpa
