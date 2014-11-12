@@ -1,24 +1,22 @@
 GPA Calculator
-====================
+===============
+A small GPA calculator coded in Python. Uses Northeastern University's grading system found [here](http://www.northeastern.edu/registrar/gradingsystem.html)
 
-A GPA calculator catered to Northeastern University.
-
-Format
-------
-
-The format for this GPA Calculator is as follows: the program will ask for the total number courses you've taken, the grade you received in each of the courses, and finally their corresponding credit values.
-
-Each class is stored in an array and these array of classes are all stored in one single array. An example of the aforementioned can be found in the code below.
+How to use
+----------
+Define an array of Course objects. A Course object represents a course taken in some arbitrary semester and can be initialized like so, where the first argument is the letter grade received (mapping of letter to number equivalent can be found in the code), the second argument is the number of credits for that course, and the third argument is the name of the course (which is an optional parameter):
 
 ```python
-# Fall 2012 Grades
-FALL_12 = [[A_MINUS, 4],   # Theory of Everything
-            [A, 1],        # Overview 9000
-            [B_MINUS, 4],  # History of Kim Jong Il
-            [B, 4],        # Quantum Physics
-            [B, 1],        # Quantum Physics Lab
-            [A_MINUS, 4]]  # 31st Century Economics
-                           # ______________________
-                           # Fall 2012 GPA: 3.278
+x = Course('A', 4, "Potato Theory")
+y = Course('B', 4, "History of Swag")
+z = Course('A-', 4, "Particle Physics")
+fall2014 = [x,y,z]
 ```
 
+The GPA is calculated by calling the defined 'gpa' function which takes in an array of courses:
+
+```python
+print gpa(fall2014)    # 3.5835
+```
+
+Hope to eventually make this more interactive and terminal driven instead of having to download the file and edit it manually..
